@@ -37,5 +37,6 @@ function greet() {
     displayGreetCount.innerHTML = JSON.parse(localStorage.getItem('count'));
     displayGreeting.innerHTML = greeting;
 }
+
 //when btnGreet is clicked my function must be executed
 btnGreet.addEventListener('click', greet)
