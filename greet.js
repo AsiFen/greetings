@@ -10,6 +10,7 @@ var displayGreetCount = document.querySelector('.countGreets')
 var greeting = ''
 // counter variable
 let count = 0
+
 // function that greets a user with their name and hello
 function greet() {
     // query select the checked radio button
@@ -32,11 +33,17 @@ function greet() {
 
         }
     }
-    localStorage.setItem('count',count)
-    console.log(localStorage.getItem('count'));
-    displayGreetCount.innerHTML = JSON.parse(localStorage.getItem('count'));
+    localStorage['countGreetings'] = count;
+
     displayGreeting.innerHTML = greeting;
+    displayGreetCount.innerHTML = count
 }
+var getStorage = localStorage['countGreetings']
+if (getStorage) {
+    count = getStorage
+}
+
+displayGreetCount.innerHTML = count
 
 //when btnGreet is clicked my function must be executed
 btnGreet.addEventListener('click', greet)
