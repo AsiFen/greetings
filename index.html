@@ -13,11 +13,14 @@
     <div>
         <h1> GREETINGS </h1>
     </div>
-    <div>
+    <div class="one">
+        <div class="displays">
+            <span class="spans">Greetings Count: <p class="countGreets"> </p></span>
+        </div>
+
         <label for="nameLabel">Name:</label>
         <input type="text" class="name" id="" value="">
-        <button class="greetBtn" type="button">Greet Me!</button>
-        <button class="reset" type="button">reset</button>
+
         <span class="">
             <p class="display"> </p>
         </span>
@@ -35,7 +38,10 @@
             <input type="radio" name="language" class="language" id="swahili" value="swahili">
             <label for="swahili">swahili</label>
         </div>
-<span>Greetings Count: <p class="countGreets"> </p></span>
+
+        <div class="btngroup"> <button class="greetBtn" type="button">Greet Me!</button>
+            <button class="reset" type="button">reset</button>
+        </div>
     </div>
 
     <script src="greet.js" charset="UTF-8"></script>

@@ -1,0 +1,31 @@
+h1 {
+    color: rgb(109, 109, 252);
+    text-align: center;
+    margin-bottom: 1em;
+}
+
+button {
+    background-color: rgb(109, 109, 252);
+    font-size: large;
+}
+
+body{
+    font-size: xx-large;
+    font-family:monospace;
+    
+}
+
+button:hover {
+    background-color:rgb(240, 75, 130);
+}
+.displays{
+float: right;
+width: 50%;
+}
+
+p{
+    font-size: 2.5em;
+}
+.one{
+    margin-left: 2.5em;
+}
