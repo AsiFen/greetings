@@ -5,7 +5,6 @@ var displayGreeting = document.querySelector('.display');
 var resetBtn = document.querySelector('.reset')
 var displayGreetCount = document.querySelector('.countGreets')
 
-
 // // global variables
 var greeterName = {}
 var count = 0
@@ -38,9 +37,9 @@ function greet() {
     var languageElement = document.querySelector('input[class="language"]:checked');
 
     // query select the checked radio button
-    var name = nameElement.value;
-
-
+    var name1 = nameElement.value;
+    var name = name1.charAt(0).toUpperCase() + name1.slice(1)
+console.log(name)
     if (greeterName[name] === undefined) {
         count++
         greeterName[name] = 0
