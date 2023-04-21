@@ -37,7 +37,8 @@ function greet() {
     var languageElement = document.querySelector('input[class="language"]:checked');
 
     // query select the checked radio button
-    var name1 = nameElement.value;
+    var name1 = nameElement.value.toLowerCase();
+    console.log(name1);
     var name = name1.charAt(0).toUpperCase() + name1.slice(1)
 console.log(name)
     if (greeterName[name] === undefined) {

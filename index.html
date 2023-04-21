@@ -13,6 +13,9 @@
     <div>
         <h1> GREETINGS </h1>
     </div>
+    <div class="display"> <span></span>
+    </div>
+
     <div class="one">
         <div class="displays">
             <span class="spans">Greetings Count: <p class="countGreets"> </p></span>
@@ -21,22 +24,21 @@
         <label for="nameLabel">Name:</label>
         <input type="text" class="name" id="" value="">
 
-        <span class="">
-            <p class="display"> </p>
-        </span>
-        <div>
-            <input type="radio" name="language" class="language" id="english" value="english">
-            <label for="english">english</label>
-        </div>
+        <div class="controls">
+            <div>
+                <input type="radio" name="language" class="language" id="english" value="english">
+                <label for="english">english</label>
+            </div>
 
-        <div>
-            <input type="radio" name="language" class="language" id="isiXhosa" value="isiXhosa">
-            <label for="isiXhosa">isiXhosa</label>
-        </div>
+            <div>
+                <input type="radio" name="language" class="language" id="isiXhosa" value="isiXhosa">
+                <label for="isiXhosa">isiXhosa</label>
+            </div>
 
-        <div>
-            <input type="radio" name="language" class="language" id="swahili" value="swahili">
-            <label for="swahili">swahili</label>
+            <div>
+                <input type="radio" name="language" class="language" id="swahili" value="swahili">
+                <label for="swahili">swahili</label>
+            </div>
         </div>
 
         <div class="btngroup"> <button class="greetBtn" type="button">Greet Me!</button>
@@ -44,8 +46,9 @@
         </div>
     </div>
 
-    <script src="greet.js" charset="UTF-8"></script>
     <script src="factoryGreeting.js" charset="UTF-8"></script>
+    <script src="greet.js" charset="UTF-8"></script>
+
 </body>
 
 </html>
