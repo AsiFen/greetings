@@ -5,84 +5,36 @@ var displayGreeting = document.querySelector('.display');
 var resetBtn = document.querySelector('.reset')
 var displayGreetCount = document.querySelector('.countGreets')
 
-// // global variables
-var greeterName = {}
-var count = 0
+var greet = greetingsExercise();
 var greeting = ''
-// var countGreet = 0
-// function greet() {
-//     countGreet = greetingsExercise.countGreet(name)
-//var name = nameElement.value;
+var getStorage = greet.getCount()
+console.log(getStorage);
 
-//     greetingsExercise.makeGreet(checkedLanguage, name)
+var count = 0
+btnGreet.addEventListener('click', function () {
 
-//     localStorage['countGreetings'] = countGreet;
+    var languageElem = document.querySelector('input[class="language"]:checked')
+    var name = nameElement.value;
+    count = greet.countGreet(name);
+    console.log(greet.storeCount());
 
-//     displayGreeting.innerHTML = makeGreet();
-//     displayGreetCount.innerHTML = countGreet()
-
-
-//     if (localStorage['countGreetings']) {
-//         countGreet = localStorage['countGreetings']
-//     }
-// }
-// // set it outside the () because the when the page was refreshed the innerhtml clear
-// displayGreetCount.innerHTML = countGreet
-
-// btnGreet.addEventListener('click', greet)
-//resetBtn.addEventListener('click', resetCounter)
-
-// function that greets a user with their name and hello
-function greet() {
-    var languageElement = document.querySelector('input[class="language"]:checked');
-
-    // query select the checked radio button
-    var name1 = nameElement.value.toLowerCase();
-    console.log(name1);
-    var name = name1.charAt(0).toUpperCase() + name1.slice(1)
-console.log(name)
-    if (greeterName[name] === undefined) {
-        count++
-        greeterName[name] = 0
+    if (languageElem) {
+        var language = languageElem.value
+        var greeting = greet.makeGreet(name, language)
+        console.log(name + language);
     }
-    if (languageElement) {
-        var checkedLanguage = languageElement.value;
-
-        if (checkedLanguage == 'english') {
-            greeting = 'Hello, ' + name
-        }
-        if (checkedLanguage == 'swahili') {
-            greeting = 'Jambo, ' + name
-
-        }
-        if (checkedLanguage == 'isiXhosa') {
-            greeting = 'Molo, ' + name
-
-        }
-    }
-console.log(greeting)
-    localStorage['countGreetings'] = count;
-
+    greet.storeCount()
     displayGreeting.innerHTML = greeting;
-    displayGreetCount.innerHTML = count
-}
+    displayGreetCount.innerHTML = greet.storeCount()
+})
+// if (getStorage) {
+//     count = getStorage
+// }
+displayGreetCount.innerHTML = greet.storeCount();
 
-var getStorage = localStorage['countGreetings']
-if (getStorage) {
-    count = getStorage
-}
-displayGreetCount.innerHTML = count;
-
-
-function resetCounter() {
-    count = 0
-    getStorage = 0
+resetBtn.addEventListener('click', function () {
     localStorage.clear();
-
-    localStorage.removeItem('countGreetings');
     displayGreetCount.innerHTML = ''
-}
-
-//when btnGreet is clicked my function must be executed
-btnGreet.addEventListener('click', greet)
-resetBtn.addEventListener('click', resetCounter)
+    displayGreeting.innerHTML = ''
+    count = 0
+})
