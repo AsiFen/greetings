@@ -5,11 +5,11 @@ function greetingsExercise() {
     var countGreeting = 0
     var name = ''
     function countGreet(name1) {
-      //  name = name1.charAt(0).toUpperCase() + name1.slice(1).toLocaleLowerCase()
+       name = name1.charAt(0).toUpperCase() + name1.slice(1).toLocaleLowerCase()
 
-        if (userNames[name1] === undefined) {
+        if (userNames[name] === undefined) {
             countGreeting++
-            userNames[name1] += 1
+            userNames[name] += 1
         }
 
         return countGreeting
@@ -43,18 +43,18 @@ function greetingsExercise() {
         displayElement.innerHTML = ''
     }
 
-    function storeCount() {
-        localStorage[nameCount] = countGreet()
-        return localStorage[nameCount]
-    }
-    function getCount(){
-        countGreet() = localStorage[nameCount]
-        return countGreet()
-    }
+    // function storeCount() {
+    //     localStorage[nameCount] = countGreet()
+    //     return localStorage[nameCount]
+    // }
+    // function getCount(){
+    //     countGreet() = localStorage[nameCount]
+    //     return countGreet()
+    // }
 
     return {
-        getCount,
-        storeCount,
+        // getCount,
+        // storeCount,
         resetCounter,
         countGreet,
         makeGreet,

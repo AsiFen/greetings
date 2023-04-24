@@ -7,30 +7,31 @@ var displayGreetCount = document.querySelector('.countGreets')
 
 var greet = greetingsExercise();
 var greeting = ''
-var getStorage = greet.getCount()
-console.log(getStorage);
 
+var getStorage = 0
 var count = 0
 btnGreet.addEventListener('click', function () {
 
     var languageElem = document.querySelector('input[class="language"]:checked')
     var name = nameElement.value;
     count = greet.countGreet(name);
-    console.log(greet.storeCount());
 
     if (languageElem) {
         var language = languageElem.value
         var greeting = greet.makeGreet(name, language)
         console.log(name + language);
     }
-    greet.storeCount()
+    localStorage['countGreetings'] = count
     displayGreeting.innerHTML = greeting;
-    displayGreetCount.innerHTML = greet.storeCount()
+    displayGreetCount.innerHTML = localStorage['countGreetings']
 })
-// if (getStorage) {
-//     count = getStorage
-// }
-displayGreetCount.innerHTML = greet.storeCount();
+
+getStorage = localStorage['countGreetings']
+console.log(getStorage);
+if (getStorage) {
+    count = Number(getStorage)
+}
+displayGreetCount.innerHTML = getStorage
 
 resetBtn.addEventListener('click', function () {
     localStorage.clear();
