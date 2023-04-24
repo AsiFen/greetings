@@ -1,9 +1,10 @@
 
-function greetingsExercise() {
+function greetingsExercise(count) {
     var userNames = {}
     var greeting = 0
-    var countGreeting = 0
+    var countGreeting = count
     var name = ''
+    
     function countGreet(name1) {
         name = name1.charAt(0).toUpperCase() + name1.slice(1).toLocaleLowerCase()
         if (userNames[name] === undefined) {
@@ -11,6 +12,13 @@ function greetingsExercise() {
             userNames[name] += 1
         }
         return countGreeting
+    }
+    function getNames(){
+        let element = ''
+        for (let name in userNames) {
+           element = name
+        }
+        return element
     }
 
     function makeGreet(name1, language) {
@@ -31,8 +39,11 @@ function greetingsExercise() {
         if (language == null) {
             return "Language not selected"
         }
-        if (name == undefined || name == '') {
+        if (name == '') {
             return "Please enter your name please"
+        }
+        if (name == '' && language == null) {
+            return "Please enter your name and select the language"
         }
     }
 
@@ -41,21 +52,11 @@ function greetingsExercise() {
         displayElement.innerHTML = ''
     }
 
-    // function storeCount() {
-    //     localStorage[nameCount] = countGreet()
-    //     return localStorage[nameCount]
-    // }
-    // function getCount(){
-    //     countGreet() = localStorage[nameCount]
-    //     return countGreet()
-    // }
-
     return {
-        // getCount,
-        // storeCount,
         resetCounter,
         countGreet,
         makeGreet,
-        errors
+        errors,
+        getNames
     }
 }
