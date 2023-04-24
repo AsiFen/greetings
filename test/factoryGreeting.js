@@ -5,13 +5,11 @@ function greetingsExercise() {
     var countGreeting = 0
     var name = ''
     function countGreet(name1) {
-       name = name1.charAt(0).toUpperCase() + name1.slice(1).toLocaleLowerCase()
-
+        name = name1.charAt(0).toUpperCase() + name1.slice(1).toLocaleLowerCase()
         if (userNames[name] === undefined) {
             countGreeting++
             userNames[name] += 1
         }
-
         return countGreeting
     }
 

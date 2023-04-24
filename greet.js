@@ -11,7 +11,6 @@ var greeting = ''
 var getStorage = 0
 var count = 0
 btnGreet.addEventListener('click', function () {
-
     var languageElem = document.querySelector('input[class="language"]:checked')
     var name = nameElement.value;
     count = greet.countGreet(name);
@@ -21,6 +20,7 @@ btnGreet.addEventListener('click', function () {
         var greeting = greet.makeGreet(name, language)
         console.log(name + language);
     }
+
     localStorage['countGreetings'] = count
     displayGreeting.innerHTML = greeting;
     displayGreetCount.innerHTML = localStorage['countGreetings']
@@ -31,6 +31,7 @@ console.log(getStorage);
 if (getStorage) {
     count = Number(getStorage)
 }
+
 displayGreetCount.innerHTML = getStorage
 
 resetBtn.addEventListener('click', function () {
