@@ -2,53 +2,71 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="index.css">
-    <title>Greetings Exercise</title>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css" /> -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+  <style>
+    body {
+      background-color: rgb(210, 129, 241);
+      /* background-image: url('https://mdbootstrap.com/img/Photos/Others/images/76.jpg'); */
+      height: 100vh;
+    }
+
+    .form-control {
+      opacity: 0.9;
+    }
+  </style>
+  <title>Greetings</title>
 </head>
 
 <body>
-    <div>
-        <h1> GREETINGS </h1>
-    </div>
-    <div class="display"> <span></span>
-    </div>
 
-    <div class="one">
-        <div class="displays">
-            <span class="spans">Greetings Count: <p class="countGreets"> </p></span>
+  <h1 class="text-center text-primary py-4">Greetings Widget</h1>
+  </div>
+  <div class="display"> <span></span>
+  </div>
+
+  <form>
+    </div>
+    <div class=" form-group row d-flex justify-content-center">
+      <div class="col-3 ">
+        <label for="form-control" class="mt-4">Enter name:</label>
+        <input type="text" class="form-control name" placeholder="Enter your name">
+
+        <div class="form-check form-check-inline mt-4">
+          <input class="form-check-input language" type="radio" name="language" id="isiXhosa" value="isiXhosa">
+          <label class="form-check-label" for="isiXhosa">isiXhosa</label>
+        </div>
+        <div class="form-check form-check-inline">
+          <input class="form-check-input language" type="radio" name="language" id="english" value="english">
+          <label class="form-check-label" for="inlineRadio2">English</label>
+        </div>
+        <div class="form-check form-check-inline">
+          <input class="form-check-input language" type="radio" name="language" id="swahili" value="swahili">
+          <label class="form-check-label" for="inlineRadio3">Swahili</label>
         </div>
 
-        <label for="nameLabel">Name:</label>
-        <input type="text" class="name" id="" value="">
+        <button class="btn greetBtn btn-primary mt-4">Greet Me!</button>
 
-        <div class="controls">
-            <div>
-                <input type="radio" name="language" class="language" id="english" value="english">
-                <label for="english">english</label>
-            </div>
-
-            <div>
-                <input type="radio" name="language" class="language" id="isiXhosa" value="isiXhosa">
-                <label for="isiXhosa">isiXhosa</label>
-            </div>
-
-            <div>
-                <input type="radio" name="language" class="language" id="swahili" value="swahili">
-                <label for="swahili">swahili</label>
-            </div>
-        </div>
-
-        <div class="btngroup"> <button class="greetBtn" type="button">Greet Me!</button>
-            <button class="reset" type="button">reset</button>
-        </div>
+        <button class="btn btn-primary reset mt-4">Reset</button>
+      </div>
+      <div class="col-4 d-flex justify-content-center ">
+        <span type="text" class="form-control countGreets text-center text-space-around" placeholder=""
+          style="height:100%;"></span>
+      </div>
     </div>
+  </form>
 
-    <script src="./test/factoryGreeting.js" charset="UTF-8"></script>
-    <script src="./greet.js" charset="UTF-8"></script>
+  <script src="./test/factoryGreeting.js" charset="UTF-8"></script>
+  <script src="./greet.js" charset="UTF-8"></script>
 
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous">
+    </script>
 </body>
 
 </html>

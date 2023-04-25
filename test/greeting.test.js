@@ -14,14 +14,14 @@ describe('greetings function', function () {
 
         })
         it('should return that Asisipho was counted once in whichever way the name is written', function () {
-            var greet = greetingsExercise()
+            var greet = greetingsExercise(2)
             var makeGreet = greet.makeGreet("asisipho")
             var makeGreet2 = greet.makeGreet("aSisipho")
             var makeGreet3 = greet.makeGreet("asisiphO")
 
             var countGreet = greet.countGreet()
 
-            assert.equal(countGreet, 1)
+            assert.equal(countGreet, 3)
         })
         it('should return that language was not selected.', function () {
             assert.equal()

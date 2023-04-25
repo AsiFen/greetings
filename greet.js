@@ -17,14 +17,17 @@ localStorage
 var greet = greetingsExercise(count);
 displayGreetCount.innerHTML = count
 
+    displayGreeting.innerHTML = greeting;
+console.log(greeting);
+
 btnGreet.addEventListener('click', function () {
-    var languageElem = document.querySelector('input[class="language"]:checked')
+    var languageElem = document.querySelector('input[name="language"]:checked')
     var name = nameElement.value;
     count = greet.countGreet(name);
 
     if (languageElem && name) {
         var language = languageElem.value
-        var greeting = greet.makeGreet(name, language)
+         greeting = greet.makeGreet(name, language)
         localStorage['countGreetings'] = count
         localStorage['names'] = greet.getNames()
 
