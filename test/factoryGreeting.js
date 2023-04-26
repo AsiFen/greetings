@@ -40,16 +40,16 @@ return "enter alphabetical characters"
     }
 
     function errors(name, language) {
-
+if (name == '' && language == null) {
+            return "Please enter your name and select the language"
+        }
         if (language == null) {
             return "Language not selected"
         }
         if (name == '') {
             return "Please enter your name please"
         }
-        if (name == '' && language == null) {
-            return "Please enter your name and select the language"
-        }
+        
     }
 
     function resetCounter() {
