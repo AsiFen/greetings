@@ -19,15 +19,15 @@ displayGreetCount.innerHTML = count
     displayGreeting.innerHTML = greeting;
 console.log(greeting);
 
-btnGreet.addEventListener('click', function () {
-    
+btnGreet.addEventListener('click', function (event) {
+    event.preventDefault(); 
     var languageElem = document.querySelector('input[name="language"]:checked')
     var name = nameElement.value;
 
     if (languageElem && name) {
-        count = greet.countGreet(name);
         var language = languageElem.value
          greeting = greet.makeGreet(name, language)
+                 count = greet.countGreet(name);
         localStorage['countGreetings'] = count
         console.log(count);
         localStorage['names'] = greet.getNames()

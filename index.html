@@ -12,7 +12,7 @@
   <style>
     body {
       background-color: rgb(210, 129, 241);
-      /* background-image: url('https://mdbootstrap.com/img/Photos/Others/images/76.jpg'); */
+      background-image: url('https://mdbootstrap.com/img/Photos/Others/images/76.jpg');
       height: 100vh;
     }
 
@@ -27,7 +27,7 @@
 
   <h1 class="text-center text-primary py-4">Greetings Widget</h1>
   </div>
-  <div class="display"> <span></span>
+  <div class="display d-flex justify-content-center"> <span></span>
   </div>
 
   <form>
@@ -50,13 +50,12 @@
           <label class="form-check-label" for="inlineRadio3">Swahili</label>
         </div>
 
-        <input class=" read-only btn greetBtn btn-primary mt-4" style="width: 40%;" placeholder="Press to greet!"></input>
+        <button class="btn greetBtn btn-primary mt-4" style="width: 40%;" placeholder="Press to greet!">greet me</button>
 
         <button class="btn btn-primary reset mt-4">Reset</button>
       </div>
       <div class="col-4 d-flex justify-content-center ">
-        <span type="text" class="form-control countGreets text-center text-space-around" placeholder=""
-          style="height:100%;"></span>
+        <span type="text" class="form-control countGreets text-center mt-4" placeholder="" style="height:100%;"></span>
       </div>
     </div>
   </form>

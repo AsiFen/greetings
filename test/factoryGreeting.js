@@ -8,7 +8,7 @@ function greetingsExercise(count) {
 
     function makeGreet(name1, language) {
         name = name1.charAt(0).toUpperCase() + name1.slice(1).toLocaleLowerCase()
-        if (name.match(/^[A-Z][a-z]+/)) {
+        if (name.match(/^[a-zA-Z]+/)) {
             if (language == 'english') {
                 greeting = 'Hello, ' + name
             }
