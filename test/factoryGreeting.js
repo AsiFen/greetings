@@ -25,7 +25,6 @@ return "enter alphabetical characters"
     }
 
     function countGreet() {
-        name = getNames()
         if (userNames[name] === undefined) {
             countGreeting++
             userNames[name] += 1
