@@ -25,7 +25,7 @@ function checkRegex(name) {
         }
         else {
             name = ''
-            return "enter alphabetical characters"
+            // return "enter alphabetical characters"
         }
     }
 

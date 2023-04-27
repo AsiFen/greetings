@@ -23,19 +23,35 @@ btnGreet.addEventListener('click', function (event) {
     event.preventDefault();
     var languageElem = document.querySelector('input[name="language"]:checked')
     var name = nameElement.value;
+
     if (languageElem && name) {
-        var language = languageElem.value
-        greeting = greet.makeGreet(name, language)
-        count = greet.countGreet();
-        localStorage['countGreetings'] = count
-        localStorage['names'] = greet.getNames()
-        displayGreeting.innerHTML = greeting;
-        displayGreetCount.innerHTML = localStorage['countGreetings']
 
-        setTimeout(() => {
-            displayGreeting.innerHTML = '';
+        if (name.match(/^[A-Za-z]+$/)) {
 
-        }, 1000);
+
+            var language = languageElem.value
+            greeting = greet.makeGreet(name, language)
+            count = greet.countGreet();
+            localStorage['countGreetings'] = count
+            localStorage['names'] = greet.getNames()
+            displayGreeting.innerHTML = greeting;
+            displayGreetCount.innerHTML = localStorage['countGreetings']
+
+            setTimeout(() => {
+                displayGreeting.innerHTML = '';
+
+            }, 1000);
+        }
+        else {
+            displayGreeting.innerHTML = "Enter alphabets only"
+            displayGreeting.classList.add('danger')
+
+            setTimeout(() => {
+                displayGreeting.classList.remove('danger')
+                displayGreeting.innerHTML = ''
+
+            }, 1000)
+        }
     }
     else {
         displayGreeting.innerHTML = greet.errors(name, languageElem)
@@ -48,7 +64,8 @@ btnGreet.addEventListener('click', function (event) {
         }, 1500);
 
     }
-    
+
+
     nameElement.value = ''
 })
 
@@ -58,7 +75,7 @@ resetBtn.addEventListener('click', function (event) {
     displayGreetCount.innerHTML = ''
     // displayGreeting.innerHTML = ''
     count = 0
- 
+
     displayGreeting.innerHTML = "Reset successful!"
     displayGreeting.classList.add('green')
 
