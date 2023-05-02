@@ -59,9 +59,7 @@ btnGreet.addEventListener('click', function (event) {
 
 resetBtn.addEventListener('click', function (event) {
     event.preventDefault();
-
     localStorage.clear();
-
     displayGreetCount.innerHTML = ''
     count = 0
 

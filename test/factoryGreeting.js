@@ -9,6 +9,7 @@ function checkRegex(name) {
     return regex.test(name)
     
 }
+
     function makeGreet(name1, language) {
         name = name1.charAt(0).toUpperCase() + name1.slice(1).toLocaleLowerCase()
         if (name.match(/^[a-zA-Z]+$/)) {
@@ -65,7 +66,6 @@ function checkRegex(name) {
  
 
     return {
-      //  resetCounter,
         countGreet,
         makeGreet,
         errors,
