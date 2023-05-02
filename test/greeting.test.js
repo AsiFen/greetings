@@ -15,26 +15,37 @@ describe('greetings function', function () {
         })
         it('should return that Asisipho was counted once in whichever way the name is written', function () {
             var greet = greetingsExercise(2)
-            var makeGreet = greet.makeGreet("asisipho")
-            var makeGreet2 = greet.makeGreet("aSisipho")
-            var makeGreet3 = greet.makeGreet("asisiphO")
+            var makeGreet = greet.makeGreet("asisipho", 'english')
+            var makeGreet2 = greet.makeGreet("aSisipho", 'isiXhosa')
+            var makeGreet3 = greet.makeGreet("asisiphO", 'swahili')
 
             var countGreet = greet.countGreet()
 
             assert.equal(countGreet, 3)
         })
         it('should return that language was not selected.', function () {
-            assert.equal()
+            var greet = greetingsExercise(1)
+            var errors = greet.errors('Clara', )
+            assert.equal(errors, 'Language not selected.')
 
         })
         it('should return that name was not entered.', function () {
-            assert.equal()
+            var greet = greetingsExercise(1)
+            var errors = greet.errors('', 'swahili')
+            assert.equal(errors, 'Please enter your name.')
 
         })
         it('should return that both language and name were not entered.', function () {
-            assert.equal()
+            var greet = greetingsExercise(1)
+            var errors = greet.errors('', )
+            assert.equal("Please enter name and select language.", errors)
 
         })
-        
+        it('should return that it greets alphabets only.', function () {
+            var greet = greetingsExercise(1)
+            var makeGreet = greet.makeGreet('123', 'swahili')
+            assert.equal('Enter alphabets only',makeGreet)
+        })
+
     });
 });

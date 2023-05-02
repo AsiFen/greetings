@@ -5,19 +5,13 @@ var displayGreeting = document.querySelector('.display');
 var resetBtn = document.querySelector('.reset')
 var displayGreetCount = document.querySelector('.countGreets')
 
-var greeting = ''
-var getStorage = 0
 var count = 0
 
-getStorage = localStorage.getItem('countGreetings')
-if (getStorage) {
-    count = Number(getStorage)
+if (localStorage.getItem('countGreetings')) {
+    count = Number(localStorage.getItem('countGreetings'))
 }
-var greet = greetingsExercise(count);
-displayGreetCount.innerHTML = count
 
-displayGreeting.innerHTML = greeting;
-console.log(greeting);
+var greet = greetingsExercise(count);
 
 btnGreet.addEventListener('click', function (event) {
     event.preventDefault();
@@ -28,13 +22,10 @@ btnGreet.addEventListener('click', function (event) {
 
         if (name.match(/^[A-Za-z]+$/)) {
 
-
             var language = languageElem.value
-            greeting = greet.makeGreet(name, language)
-            count = greet.countGreet();
-            localStorage['countGreetings'] = count
+            displayGreeting.innerHTML = greet.makeGreet(name, language);
+            localStorage['countGreetings'] = greet.countGreet();
             localStorage['names'] = greet.getNames()
-            displayGreeting.innerHTML = greeting;
             displayGreetCount.innerHTML = localStorage['countGreetings']
 
             setTimeout(() => {
@@ -62,18 +53,16 @@ btnGreet.addEventListener('click', function (event) {
             displayGreeting.innerHTML = ''
 
         }, 1500);
-
     }
-
-
     nameElement.value = ''
 })
 
 resetBtn.addEventListener('click', function (event) {
     event.preventDefault();
+
     localStorage.clear();
+
     displayGreetCount.innerHTML = ''
-    // displayGreeting.innerHTML = ''
     count = 0
 
     displayGreeting.innerHTML = "Reset successful!"
@@ -83,5 +72,5 @@ resetBtn.addEventListener('click', function (event) {
         displayGreeting.classList.remove('green')
         displayGreeting.innerHTML = ''
 
-    }, 1000)
+    }, 3000)
 })

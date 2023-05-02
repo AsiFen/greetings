@@ -25,7 +25,7 @@ function checkRegex(name) {
         }
         else {
             name = ''
-            // return "enter alphabetical characters"
+            return "Enter alphabets only"
         }
     }
 
@@ -45,30 +45,27 @@ function checkRegex(name) {
 
 
     function getNames() {
-        let x = Object.keys(userNames)
-        return x
+        let users_name = Object.keys(userNames)
+        return users_name
     }
 
     function errors(name, language) {
         if (name == '' && language == null) {
-            return "Please enter your name and select the language"
+            return "Please enter name and select language."
         }
         if (language == null) {
-            return "Language not selected"
+            return "Language not selected."
         }
         if (name == '') {
-            return "Please enter your name please"
+            return "Please enter your name."
         }
 
     }
 
-    function resetCounter() {
-        localStorage.clear();
-        displayElement.innerHTML = ''
-    }
+ 
 
     return {
-        resetCounter,
+      //  resetCounter,
         countGreet,
         makeGreet,
         errors,
