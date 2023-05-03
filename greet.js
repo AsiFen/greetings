@@ -11,7 +11,7 @@ if (localStorage.getItem('countGreetings')) {
     count = Number(localStorage.getItem('countGreetings'))
 }
 
-var greet = greetingsExercise(count);
+var greet = GreetingsExercise(count);
 
 btnGreet.addEventListener('click', function (event) {
     event.preventDefault();
@@ -31,7 +31,7 @@ btnGreet.addEventListener('click', function (event) {
             setTimeout(() => {
                 displayGreeting.innerHTML = '';
 
-            }, 1000);
+            }, 5000);
         }
         else {
             displayGreeting.innerHTML = "Enter alphabets only"
@@ -41,7 +41,7 @@ btnGreet.addEventListener('click', function (event) {
                 displayGreeting.classList.remove('danger')
                 displayGreeting.innerHTML = ''
 
-            }, 1000)
+            }, 5000)
         }
     }
     else {
@@ -52,7 +52,7 @@ btnGreet.addEventListener('click', function (event) {
             displayGreeting.classList.remove('danger')
             displayGreeting.innerHTML = ''
 
-        }, 1500);
+        }, 5000);
     }
     nameElement.value = ''
 })
@@ -62,13 +62,15 @@ resetBtn.addEventListener('click', function (event) {
     localStorage.clear();
     displayGreetCount.innerHTML = ''
     count = 0
+    if (confirm('Reset the greeter?')) {
+        nameElement.value = '';
 
-    displayGreeting.innerHTML = "Reset successful!"
-    displayGreeting.classList.add('green')
+        displayGreeting.innerHTML = "Reset successful!"
+        displayGreeting.classList.add('green')
+        setTimeout(() => {
+            displayGreeting.classList.remove('green')
+            displayGreeting.innerHTML = ''
 
-    setTimeout(() => {
-        displayGreeting.classList.remove('green')
-        displayGreeting.innerHTML = ''
-
-    }, 3000)
+        }, 5000)
+    }
 })

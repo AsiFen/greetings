@@ -1,5 +1,5 @@
 
-function greetingsExercise(count) {
+function GreetingsExercise(count) {
     var userNames = {}
     var greeting = 0
     var countGreeting = count
@@ -62,9 +62,6 @@ function checkRegex(name) {
         }
 
     }
-
- 
-
     return {
         countGreet,
         makeGreet,
