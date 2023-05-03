@@ -2,8 +2,11 @@
 var nameElement = document.querySelector('.name');
 var btnGreet = document.querySelector('.greetBtn');
 var displayGreeting = document.querySelector('.display');
+var errorDisplay = document.querySelector('.error')
 var resetBtn = document.querySelector('.reset')
 var displayGreetCount = document.querySelector('.countGreets')
+
+let errorTimeout;
 
 var count = 0
 
@@ -12,6 +15,20 @@ if (localStorage.getItem('countGreetings')) {
 }
 
 var greet = GreetingsExercise(count);
+
+// create a function that calls the timeout...
+
+function createMessageReset() {
+
+    // stop any current timeouts
+    clearTimeout(errorTimeout);
+
+    errorTimeout = setTimeout(() => {
+        errorDisplay.classList.remove('danger')
+        errorDisplay.innerHTML = ''
+    }, 5000)
+}
+
 
 btnGreet.addEventListener('click', function (event) {
     event.preventDefault();
@@ -27,32 +44,21 @@ btnGreet.addEventListener('click', function (event) {
             localStorage['countGreetings'] = greet.countGreet();
             localStorage['names'] = greet.getNames()
             displayGreetCount.innerHTML = localStorage['countGreetings']
-
-            setTimeout(() => {
-                displayGreeting.innerHTML = '';
-
-            }, 5000);
         }
         else {
-            displayGreeting.innerHTML = "Enter alphabets only"
-            displayGreeting.classList.add('danger')
+            errorDisplay.innerHTML = "Enter alphabets only"
+            errorDisplay.classList.add('danger')
 
-            setTimeout(() => {
-                displayGreeting.classList.remove('danger')
-                displayGreeting.innerHTML = ''
+            createMessageReset();
 
-            }, 5000)
         }
     }
     else {
-        displayGreeting.innerHTML = greet.errors(name, languageElem)
-        displayGreeting.classList.add('danger')
+        errorDisplay.innerHTML = greet.errors(name, languageElem)
+        errorDisplay.classList.add('danger')
 
-        setTimeout(() => {
-            displayGreeting.classList.remove('danger')
-            displayGreeting.innerHTML = ''
+        createMessageReset();
 
-        }, 5000);
     }
     nameElement.value = ''
 })
@@ -65,11 +71,12 @@ resetBtn.addEventListener('click', function (event) {
     if (confirm('Reset the greeter?')) {
         nameElement.value = '';
 
-        displayGreeting.innerHTML = "Reset successful!"
-        displayGreeting.classList.add('green')
+        errorDisplay.innerHTML = "Reset successful!"
+        errorDisplay.classList.add('green')
+
         setTimeout(() => {
-            displayGreeting.classList.remove('green')
-            displayGreeting.innerHTML = ''
+            errorDisplay.classList.remove('green')
+            errorDisplay.innerHTML = ''
 
         }, 5000)
     }
